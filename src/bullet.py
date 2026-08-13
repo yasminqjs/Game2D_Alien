@@ -1,8 +1,9 @@
 import pygame
 from pygame.sprite import Sprite
 
+
 # Nesse momento é utilizado o conceito de HERANÇA de Orientação a Objetos, onde a classe Bullet herda os atributos e métodos da classe Sprite, que é uma classe do Pygame usada para representar objetos visuais no jogo.
- # A classe Bullet é responsável por gerenciar os projéteis disparados pela nave, incluindo sua posição, movimento e aparência.
+# A classe Bullet é responsável por gerenciar os projéteis disparados pela nave, incluindo sua posição, movimento e aparência.
 class Bullet(Sprite):
     """Gerencia os projéteis disparados pela nave."""
 
