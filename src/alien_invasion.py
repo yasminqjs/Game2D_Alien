@@ -2,14 +2,14 @@ import sys
 
 import pygame
 
-from alien import Alien
-from bullet import Bullet
-from settings import Settings
-from ship import Ship
-from fleet_manager import FleetManager
-from bullet_manager import BulletManager
-from game_event_handler import GameEventHandler
-from game_renderer import GameRenderer
+from entities.alien import Alien
+from entities.bullet import Bullet
+from entities.ship import Ship
+from config.settings import Settings
+from managers.fleet_manager import FleetManager
+from managers.bullet_manager import BulletManager
+from game.game_event_handler import GameEventHandler
+from game.game_renderer import GameRenderer
 
 class AlienInvasion:
     """Gerencia o jogo e seus comportamentos."""

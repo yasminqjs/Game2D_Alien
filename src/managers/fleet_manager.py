@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from alien import Alien
+from entities.alien import Alien
 
 class FleetManager:
     """Responsável por criar e gerenciar a frota de alienígenas."""
