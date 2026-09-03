@@ -1,18 +1,28 @@
 from abc import ABC, abstractmethod
 
+
 class Desconto(ABC):
     @abstractmethod
-    def calcular(self, valor):
+    def calcular(self, valor: float) -> float:
         pass
 
+
 class DescontoNormal(Desconto):
-    def calcular(self, valor):
+    def calcular(self, valor: float) -> float:
         return valor * 0.1
 
-class DescontoVip(Desconto):
-    def calcular(self, valor):
+
+class DescontoVIP(Desconto):
+    def calcular(self, valor: float) -> float:
         return valor * 0.2
 
+    def aplicarCupom(self, codigo: str) -> bool:
+        return codigo == "DESC10"
+
+    def validarUsuarioVIP(self, usuario) -> bool:
+        return True
+
+
 class DescontoPremium(Desconto):
-    def calcular(self, valor):
+    def calcular(self, valor: float) -> float:
         return valor * 0.3
