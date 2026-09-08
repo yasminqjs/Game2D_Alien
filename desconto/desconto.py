@@ -9,20 +9,14 @@ class Desconto(ABC):
 
 class DescontoNormal(Desconto):
     def calcular(self, valor: float) -> float:
-        return valor * 0.1
+        return valor * 0.10
 
 
 class DescontoVIP(Desconto):
     def calcular(self, valor: float) -> float:
-        return valor * 0.2
-
-    def aplicarCupom(self, codigo: str) -> bool:
-        return codigo == "DESC10"
-
-    def validarUsuarioVIP(self, usuario) -> bool:
-        return True
+        return valor * 0.20
 
 
 class DescontoPremium(Desconto):
     def calcular(self, valor: float) -> float:
-        return valor * 0.3
+        return valor * 0.30
