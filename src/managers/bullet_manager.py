@@ -17,6 +17,9 @@ class BulletManager:
             new_bullet = Bullet(self.screen, self.settings, self.ship)
             self.bullets.add(new_bullet)
 
+    # Alias para compatibilidade com testes unitários
+    _fire_bullet = fire_bullet
+
     def update_bullets(self, aliens) -> None:
         """Atualiza a posição dos projéteis e se livra dos projéteis antigos."""
         self.bullets.update()

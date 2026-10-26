@@ -1,3 +1,4 @@
+import os
 import pygame
 from pygame.sprite import Sprite
 from pygame.surface import Surface
@@ -16,7 +17,11 @@ class Alien(Sprite):
         self.settings = alien_invasion_settings
 
         # Carrega a imagem do alienígena e obtém seu rect
-        self.image = pygame.image.load("../images/alien.bmp")
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        image_path = os.path.join(base_dir, "images", "alien.bmp")
+        if not os.path.exists(image_path):
+            image_path = "images/alien.bmp" if os.path.exists("images/alien.bmp") else "../images/alien.bmp"
+        self.image = pygame.image.load(image_path)
         self.rect = self.image.get_rect()
 
         # Inicia cada novo alienígena próximo à parte superior esquerda da tela

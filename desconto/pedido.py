@@ -1,8 +1,11 @@
-from desconto import Desconto
+try:
+    from .desconto import Desconto
+except ImportError:
+    from desconto import Desconto
 
 
 class Pedido:
-    def __init__(self, desconto: Desconto):
+    def __init__(self, desconto: Desconto) -> None:
         self.desconto = desconto
 
     def total(self, valor: float) -> float:
