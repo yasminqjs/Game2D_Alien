@@ -36,3 +36,4 @@ def test_fleet_manager_inverte_direcao_com_stub_alien() -> None:
     assert settings.fleet_direction == -direcao_inicial
     # E o alienígena deve ter descido fleet_drop_speed (10 pixels)
     assert stub_alien.rect.y == 110
+

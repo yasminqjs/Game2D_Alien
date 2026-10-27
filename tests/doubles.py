@@ -2,12 +2,14 @@ from __future__ import annotations
 import pygame
 
 try:
-    from desconto.desconto import IDesconto
+    from desconto.desconto import Desconto
 except ImportError:
-    from src.coisa_de_desconto.Desconto import IDesconto
+    from desconto import Desconto
+
+IDesconto = Desconto
 
 
-class StubSemDesconto(IDesconto):
+class StubSemDesconto(Desconto):
     def calcular(self, valor: float) -> float:
         return 0.0
 
