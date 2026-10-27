@@ -1,0 +1,11 @@
+{
+  "extraPaths": [
+    ".",
+    "src",
+    "src/config",
+    "src/entities",
+    "src/game",
+    "src/managers",
+    "desconto"
+  ]
+}

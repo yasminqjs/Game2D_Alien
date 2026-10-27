@@ -1,0 +1,62 @@
+import os
+import pygame
+from pygame.surface import Surface
+from config.settings import Settings
+
+
+class Ship:
+    """Gerencia a nave espacial."""
+
+    def __init__(self, alien_invasion_screen: Surface, alien_invasion_settings: Settings) -> None:
+        """Inicializa a nave e define sua posição inicial."""
+        self.screen = alien_invasion_screen
+        self.settings = alien_invasion_settings
+        self.screen_rect = (
+            self.screen.get_rect()
+        )  # Rect é uma estrutura usada para representar posições e áreas retangulares
+
+        # Carrega a imagem da nave e obtém seu rect
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        image_path = os.path.join(base_dir, "images", "ship.bmp")
+        if not os.path.exists(image_path):
+            image_path = "images/ship.bmp" if os.path.exists("images/ship.bmp") else "../images/ship.bmp"
+        self.image: Surface = pygame.image.load(image_path)
+        # o pygame trata os elementos como retangulos, tornando seu processamento eficiente
+        self.rect: pygame.Rect = self.image.get_rect()
+        # Posiciona a nave no centro inferior da tela
+        self.rect.midbottom = self.screen_rect.midbottom
+
+        self.moving_right = (
+            False  # Variável de controle para o movimento da nave para a direita
+        )
+        self.moving_left = (
+            False  # Variável de controle para o movimento da nave para a esquerda
+        )
+
+        self.x = float(
+            self.rect.x
+        )  # Armazena a posição horizontal da nave como um número de ponto flutuante para permitir movimentos suaves
+
+    def blitme(self) -> None:
+        """Desenha a nave em sua posição atual."""
+        # o método blit desenha a imagem da nave na tela usando as coordenadas do rect
+        self.screen.blit(self.image, self.rect)  # ('o que', 'onde')
+
+    def update(self) -> None:
+        """Atualiza a posição da nave com base na variável de controle."""
+        if (
+            self.moving_right and self.rect.right < self.screen_rect.right
+        ):  # Verifica se a nave pode se mover para a direita sem sair da tela
+            self.x += (
+                self.settings.ship_speed
+            )  # Move a nave para a direita aumentando a coordenada x
+
+        if (
+            self.moving_left and self.rect.left > 0
+        ):  # Verifica se a nave pode se mover para a esquerda sem sair da tela
+            self.x -= (
+                self.settings.ship_speed
+            )  # Move a nave para a esquerda diminuindo a coordenada x
+
+        # Atualiza o rect object da nave
+        self.rect.x = int(self.x)
