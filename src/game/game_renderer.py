@@ -22,3 +22,7 @@ class GameRenderer:
         """Desenha os projéteis na tela."""
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+
+    # Aliases para compatibilidade com testes unitários
+    _render_screen = render_screen
+    _draw_bullets = draw_bullets
