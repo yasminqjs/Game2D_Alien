@@ -1,15 +1,8 @@
 from __future__ import annotations
 from typing import Any
-
-try:
-    from desconto.pedido import Pedido
-except ImportError:
-    from src.coisa_de_desconto.Desconto import Pedido
-
-try:
-    from game.game_renderer import GameRenderer
-except ImportError:
-    from src.game_renderer import GameRenderer
+import pygame
+from pedido import Pedido
+from game.game_renderer import GameRenderer
 
 
 def test_pedido_com_mock_desconto(mocker: Any) -> None:

@@ -20,9 +20,9 @@ class Ship:
         image_path = os.path.join(base_dir, "images", "ship.bmp")
         if not os.path.exists(image_path):
             image_path = "images/ship.bmp" if os.path.exists("images/ship.bmp") else "../images/ship.bmp"
-        self.image = pygame.image.load(image_path)
+        self.image: Surface = pygame.image.load(image_path)
         # o pygame trata os elementos como retangulos, tornando seu processamento eficiente
-        self.rect = self.image.get_rect()
+        self.rect: pygame.Rect = self.image.get_rect()
         # Posiciona a nave no centro inferior da tela
         self.rect.midbottom = self.screen_rect.midbottom
 
@@ -59,4 +59,4 @@ class Ship:
             )  # Move a nave para a esquerda diminuindo a coordenada x
 
         # Atualiza o rect object da nave
-        self.rect.x = self.x
+        self.rect.x = int(self.x)

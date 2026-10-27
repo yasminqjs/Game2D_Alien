@@ -1,7 +1,4 @@
-try:
-    from .desconto import Desconto
-except ImportError:
-    from desconto import Desconto
+from desconto import Desconto
 
 
 class Pedido:

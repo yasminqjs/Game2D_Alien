@@ -1,12 +1,7 @@
 import pygame
-try:
-    from managers.bullet_manager import BulletManager
-    from config.settings import Settings
-    from entities.ship import Ship
-except ImportError:
-    from bullet_manager import BulletManager
-    from settings import Settings
-    from ship import Ship
+from managers.bullet_manager import BulletManager
+from config.settings import Settings
+from entities.ship import Ship
 
 
 def test_bullet_manager_fire() -> None:

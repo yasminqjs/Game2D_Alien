@@ -1,10 +1,6 @@
 from __future__ import annotations
 import pygame
-
-try:
-    from desconto.desconto import Desconto
-except ImportError:
-    from desconto import Desconto
+from desconto import Desconto
 
 IDesconto = Desconto
 
@@ -18,7 +14,7 @@ class StubAlienQueTocouBorda(pygame.sprite.Sprite):
     """Stub de alienígena do jogo que sempre responde que atingiu a borda."""
     def __init__(self) -> None:
         super().__init__()
-        self.rect = pygame.Rect(100, 100, 60, 58)
+        self.rect: pygame.Rect = pygame.Rect(100, 100, 60, 58)
 
     def check_edges(self) -> bool:
         return True

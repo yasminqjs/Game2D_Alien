@@ -1,10 +1,6 @@
 import pygame
-try:
-    from config.settings import Settings
-    from entities.ship import Ship
-except ImportError:
-    from settings import Settings
-    from ship import Ship
+from config.settings import Settings
+from entities.ship import Ship
 
 
 def test_ship_move_esquerda() -> None:

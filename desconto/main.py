@@ -1,11 +1,11 @@
 from pedido import Pedido
 from cupom import CupomVIP
-
 from desconto import (
     DescontoNormal,
     DescontoVIP,
-    DescontoPremium
+    DescontoPremium,
 )
+
 
 def aplicar_desconto(desconto, valor: float) -> float:
     return desconto.calcular(valor)
@@ -19,7 +19,6 @@ def aplicar_cupom(cupom, codigo: str, desconto, valor: float) -> float:
 
 
 if __name__ == "__main__":
-
     valor = 100
 
     pedido_normal = Pedido(DescontoNormal())
